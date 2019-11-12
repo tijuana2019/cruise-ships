@@ -1,9 +1,10 @@
 class Ship {
-    constructor(startingPort, passengers, port) {
-        this.startingPort = startingPort;
+    constructor(passengers, port) {
+        this.currentPort = port;
         this.passengers = passengers;
         this.sailing = false;
         this.port = port;
+        this.docked = false;
     }
 
     setSail() {
@@ -13,13 +14,20 @@ class Ship {
             this.sailing = false;
         };
         if(this.passengers >= 1) {
-            this.startingPort = false;
+            this.currentPort = false;
         } else {
-            this.startingPort = this.startingPort;
+            this.currentPort = this.currentPort;
+        }     
+      }
+    
+    dock() {
+        if(this.port) {
+            this.docked = true;     
+        } else {
+            this.docked = false;
         }
 
-        
-      }
+    }
    
 }
 
